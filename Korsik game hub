@@ -1,7 +1,7 @@
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local window = DrRayLibrary:Load("korsik", "Default")
 
-local tab = DrRayLibrary.main("reach", "ImageIdHere")
+local tab = DrRayLibrary.newTab("main", "ImageIdHere")
 
 tab.reach("works with mobile and pc")
 
@@ -43,75 +43,143 @@ end)
 
 
 
-MRPage:CreateButton("Reach - 0", "Setting Size Of Reach", function()
+tab.newButton("Reach - 0", "Setting Size Of Reach", function()
     DistanceReachMobile = 0
 end)
 
-MRPage:CreateButton("Reach - 2", "Setting Size Of Reach", function()
+tab.newButton("Reach - 2", "Setting Size Of Reach", function()
     DistanceReachMobile = 2
 end)
 
-MRPage:CreateButton("Reach - 3", "Setting Size Of Reach", function()
+tab.newButton("Reach - 3", "Setting Size Of Reach", function()
     DistanceReachMobile = 3
 end)
 
-MRPage:CreateButton("Reach - 5", "Setting Size Of Reach", function()
+tab.newButton("Reach - 5", "Setting Size Of Reach", function()
     DistanceReachMobile = 5
 end)
 
-MRPage:CreateButton("Reach - 8", "Setting Size Of Reach", function()
+tab.newButton("Reach - 8", "Setting Size Of Reach", function()
     DistanceReachMobile = 8
 end)
 
-MRPage:CreateButton("Reach - 10", "Setting Size Of Reach", function()
+tab.newButton("Reach - 10", "Setting Size Of Reach", function()
     DistanceReachMobile = 10
 end)
 
-MRPage:CreateButton("Reach - 15", "Setting Size Of Reach", function()
+tab.newButton("Reach - 15", "Setting Size Of Reach", function()
     DistanceReachMobile = 15
 end)
 
-MRPage:CreateButton("Reach - 20", "Setting Size Of Reach", function()
+tab.newButton("Reach - 20", "Setting Size Of Reach", function()
     DistanceReachMobile = 20
 end)
 
-MRPage:CreateButton("Reach - 25", "Setting Size Of Reach", function()
+tab.newButton("Reach - 25", "Setting Size Of Reach", function()
     DistanceReachMobile = 25
 end)
 
-MRPage:CreateButton("Reach - 30", "Setting Size Of Reach", function()
+tab.newButton("Reach - 30", "Setting Size Of Reach", function()
     DistanceReachMobile = 30
 end)
 
-MRPage:CreateButton("Reach - 35", "Setting Size Of Reach", function()
+tab.newButton("Reach - 35", "Setting Size Of Reach", function()
     DistanceReachMobile = 35
 end)
 
-MRPage:CreateButton("Reach - 50", "Setting Size Of Reach", function()
+tab.newButton("Reach - 50", "Setting Size Of Reach", function()
     DistanceReachMobile = 50
 end)
 
-MRPage:CreateButton("Reach - 60", "Setting Size Of Reach", function()
+tab.newButton("Reach - 60", "Setting Size Of Reach", function()
     DistanceReachMobile = 60
 end)
 
-MRPage:CreateButton("Reach - 70", "Setting Size Of Reach", function()
+tab.newButton("Reach - 70", "Setting Size Of Reach", function()
     DistanceReachMobile = 70
 end)
 
-MRPage:CreateButton("Reach - 80", "Setting Size Of Reach", function()
+tab.newButton("Reach - 80", "Setting Size Of Reach", function()
     DistanceReachMobile = 80
 end)
 
-MRPage:CreateButton("Reach - 90", "Setting Size Of Reach", function()
+tab.newButton("Reach - 90", "Setting Size Of Reach", function()
     DistanceReachMobile = 90
 end)
 
-MRPage:CreateButton("Reach - 100", "Setting Size Of Reach", function()
+tab.newButton("Reach - 100", "Setting Size Of Reach", function()
     DistanceReachMobile = 100
 end)
 
 
+local tab2 = DrRayLibrary.newTab("misc", "ImageIdHere")
 
+tab2.newLabel("Hello, this is misc tab")
+
+tab2.newButton("anti-kick", "anti kick!", function()
+    local mt = getrawmetatable(game)
+local ncallsa = mt.__namecall
+	setreadonly(mt, false)
+	mt.__namecall = newcclosure(function(...)
+		local args = {...}
+		if not checkcaller() and getnamecallmethod() == "Kick" then
+			return nil
+		end
+		return ncallsa(...)
+	end)
+	setreadonly(mt, true)
+end)
+
+
+tab2.newButton("Anti-ban", "anti-ban!", function()
+    local mmt = getrawmetatable(game)
+
+local oldnamecall = mmt.__namecall
+
+setreadonly(mmt, false)
+
+mmt.__namecall = newcclosure(function(self, ...)
+   local method = tostring(getnamecallmethod())
+   local Args = {...}
+   if not checkcaller() and method == "FireServer" and tostring(self) == "Banned" then
+       return nil
+   end
+   
+   return oldnamecall(self, ...)
+end)
+
+setreadonly(mmt, true)
+	
+	local gmt = getrawmetatable(game);
+setreadonly(gmt, false);
+local old_index = gmt.__index;
+gmt.__index = function(a, b)
+    if tostring(a) == "BannedA" or tostring(a) == "BannedB" or tostring(a) == "BannedC" or tostring(a) == "BannedD" then
+        if tostring(b) == "Value" then
+            return false;
+        end
+    end
+    return old_index(a, b);
+end
+
+local bgmt = getrawmetatable(game);
+setreadonly(bgmt, false);
+local bold_index = bgmt.__index;
+bgmt.__index = function(a, b)
+    if tostring(a) == "BCount" then
+        if tostring(b) == "Value" then
+            return 0;
+        end
+    end
+    return bold_index(a, b);
+end
+
+for i,BN in pairs(game:GetService("Workspace").FE.Settings:GetChildren()) do
+    if BN.Name == "BName" then
+    BN:Destroy()
+end
+end
+--//
+end)
 
 
