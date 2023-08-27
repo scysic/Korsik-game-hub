@@ -1,5 +1,5 @@
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
-local window = DrRayLibrary:Load("tps street soccer", "Default")
+local window = DrRayLibrary:Load("korsik", "Default")
 
 local tab = DrRayLibrary.newTab("main", "ImageIdHere")
 
@@ -255,7 +255,7 @@ function GetPlayer(String)
 	return Foundplr
 end
 end)
-end)
+
 
 
 
