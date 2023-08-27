@@ -1,4 +1,4 @@
-if game.PlaceID == 335760407 then
+if game.PlaceId == 335760407 then
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local window = DrRayLibrary:Load("korsik", "Default")
 
@@ -261,7 +261,9 @@ end)
 
 
 
-then game.PlaceID == 155382109 then
+
+
+if game.PlaceId == 155382109 then
 
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local window = DrRayLibrary:Load("survive and kill the killers", "Default")
