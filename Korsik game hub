@@ -1,6 +1,8 @@
-if game.PlaceId == 335760407 then
+
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local window = DrRayLibrary:Load("tps street soccer", "Default")
+
+if game.PlaceId == 335760407 then
 
 local tab = DrRayLibrary.newTab("main", "ImageIdHere")
 
