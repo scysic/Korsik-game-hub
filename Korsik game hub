@@ -291,7 +291,7 @@ local window = DrRayLibrary:Load("korsik", "Default")
 
 local tab = DrRayLibrary.newTab("guns", "ImageIdHere")
 
-tab3.newLabel("get guns")
+tab.newLabel("get guns")
 
 tab.newButton("M14", "Get Gun", function()
     getgun("M14")
