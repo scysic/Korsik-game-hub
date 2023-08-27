@@ -211,3 +211,51 @@ RunStepped2:Disconnect()
 end
 end)
 
+tab2.newButton("fps boost", "removes lag from gui", function()
+    for i,nolag in pairs(game.StarterGui.Start:GetChildren()) do
+if nolag.Name == "Gradient" then
+nolag:Destroy()
+end
+end
+for i,nolaglp in pairs(game.Players.LocalPlayer.PlayerGui.Start:GetChildren()) do
+if nolaglp.Name == "Gradient" then
+nolaglp:Destroy()
+end
+end
+--//
+
+--// FUNCTIONS, VARIABLES AND SCRIPTS //--
+function GetPlayer(String)
+	local Foundplr = {}
+	local strl = String:lower()
+	if strl == "all" then
+		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+			table.insert(Foundplr,v)
+		end
+	elseif strl == "others" then
+		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+			if v.Name ~= game.Players.LocalPlayer.Name then
+				table.insert(Foundplr,v)
+			end
+		end
+	elseif strl == "me" then
+		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+			if v.Name == game.Players.LocalPlayer.Name then
+				table.insert(Foundplr,v)
+			end
+		end
+	else
+		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+			if v.DisplayName:lower():sub(1, #String) == String:lower() or v.Name:lower():sub(1, #String) == String:lower() then
+				table.insert(Foundplr,v)
+			end
+		end
+	end
+	return Foundplr
+end
+end)
+
+    
+        
+
+
