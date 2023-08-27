@@ -1,6 +1,6 @@
 if game.PlaceId == 335760407 then
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
-local window = DrRayLibrary:Load("korsik", "Default")
+local window = DrRayLibrary:Load("tps street soccer", "Default")
 
 local tab = DrRayLibrary.newTab("main", "ImageIdHere")
 
@@ -263,128 +263,6 @@ end)
 
 
 
-if game.PlaceId == 155382109 then
-
-local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
-local window = DrRayLibrary:Load("survive and kill the killers", "Default")
-
-function getgun(gun)
-	local head = game.Players.LocalPlayer.Character.Head
-	local part = game:GetService("Workspace").AREA51[gun][gun.. " Giver"]["PUT THE WEAPON IN THIS BRICK"]
-	firetouchinterest(part, head, 0)
-	wait(0.01)
-	firetouchinterest(part, head, 1)
-end
-
-
-function pap(gun)
-	game:GetService("ReplicatedStorage"):FindFirstChild("Remote Functions"):FindFirstChild("PAP Weapon"):InvokeServer(gun)
-end
-
-local tab = DrRayLibrary.newTab("guns", "ImageIdHere")
-
-
-tab.newButton("M14", "Get Gun", function()
-    getgun("M14")
-end)
-tab.newButton("MP5k", "Get Gun", function()
-    getgun("MP5k")
-end)
-tab.newButton("M4A1", "Get Gun", function()
-    getgun("M4A1")
-end)
-tab.newButton("R870", "Get Gun", function()
-    getgun("R870")
-end)
-tab.newButton("M16A2/M203", "Get Gun", function()
-    getgun("M16A2/M203")
-end)
-tab.newButton("RayGun", "Get Gun", function()
-    getgun("RayGun")
-end)
-tab.newButton("M1014", "Get Gun", function()
-    getgun("M1014")
-end)
-tab.newButton("M1911", "Get Gun", function()
-    getgun("M1911")
-end)
-tab.newButton("AK-47", "Get Gun", function()
-    getgun("AK-47")
-end)
-tab.newButton("AWP", "Get Gun", function()
-    getgun("AWP")
-end)
-
-local tab2 = DrRayLibrary.newTab("areas", "ImageIdHere")
-
-tab2.newButton("Spawn", "TP To Spawn", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(324, 511, 419)
-end)
-
-tab2.newButton("Code Area", "TP To Alien Code", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(138, 333, 535)
-end)
-
-tab2.newButton("Pack A Punch", "TP To Pack A Punch", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(278, 323, 784)
-end)
-
-
-local tab3 = DrRayLibrary.newTab("misc", "ImageIdHere")
-
-tab3.newButton("Get All Guns", "Gets All Guns", function()
-    getgun("M14")
-	wait(0.4)
-	getgun("MP5k")
-	wait(0.4)
-	getgun("M4A1")
-	wait(0.4)
-	getgun("R870")
-	wait(0.4)
-	getgun("M16A2/M203")
-	wait(0.4)
-	getgun("RayGun")
-	wait(0.4)
-	getgun("M1014")
-	wait(0.4)
-	getgun("M1911")
-	wait(0.4)
-	getgun("AK-47")
-	wait(0.4)
-	getgun("AWP")
-end)
-
-
-tab3.newButton("M14", "Pack A Punch Weapon", function()
-    pap("M14")
-end)
-tab3.newButton("MP5k", "Pack A Punch Weapon", function()
-    pap("MP5k")
-end)
-tab3.newButton("M4A1", "Pack A Punch Weapon", function()
-    pap("M4A1")
-end)
-tab3.newButton("R870", "Pack A Punch Weapon", function()
-    pap("R870")
-end)
-tab3.newButton("M16A2/M203", "Pack A Punch Weapon", function()
-    pap("M16A2/M203")
-end)
-tab3.newButton("RayGun", "Pack A Punch Weapon", function()
-    pap("RayGun")
-end)
-tab3.newButton("M1014", "Pack A Punch Weapon", function()
-    pap("M1014")
-end)
-tab3.newButton("M1911", "Pack A Punch Weapon", function()
-    pap("M1911")
-end)
-tab3.newButton("AK-47", "Pack A Punch Weapon", function()
-    pap("AK-47")
-end)
-tab3.newButton("AWP", "Pack A Punch Weapon", function()
-    pap("AWP")
-      end)
 
 
 
