@@ -1,1 +1,9 @@
--hello
+local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
+local window = DrRayLibrary:Load("korsik", "Default")
+
+local tab = DrRayLibrary.newTab("My Tab", "ImageIdHere")
+tab.newButton("reach", "can be used with mobile and pc", function()
+    print('Hello!')
+
+
+
