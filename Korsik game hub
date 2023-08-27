@@ -261,10 +261,10 @@ end)
 
 
 
-ifthen game.PlaceID == 155382109 then
+then game.PlaceID == 155382109 then
 
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
-local window = DrRayLibrary:Load("korsik", "Default")
+local window = DrRayLibrary:Load("survive and kill the killers", "Default")
 
 function getgun(gun)
 	local head = game.Players.LocalPlayer.Character.Head
