@@ -1,9 +1,117 @@
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local window = DrRayLibrary:Load("korsik", "Default")
 
-local tab = DrRayLibrary.newTab("My Tab", "ImageIdHere")
-tab.newButton("reach", "can be used with mobile and pc", function()
-    print('Hello!')
+local tab = DrRayLibrary.main("reach", "ImageIdHere")
+
+tab.reach("works with mobile and pc")
+
+tab.Method1("Reach: Method 1")
+local RunSteppedMobile
+local DistanceReachMobile = 0
+
+tab.newButton("reach", "enables reach", function()
+    RunSteppedMobile = game:GetService("RunService").RenderStepped:Connect(function()
+if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
+if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.TPSSystem.TPS.Position).Magnitude <= DistanceReachMobile then
+if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then
+firetouchinterest(game.Players.LocalPlayer.Character["Right Leg"], game.Workspace.TPSSystem.TPS, 0)
+			firetouchinterest(game.Players.LocalPlayer.Character["Right Leg"], game.Workspace.TPSSystem.TPS, 1)
+elseif game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 2 then
+firetouchinterest(game.Players.LocalPlayer.Character["Left Leg"], game.Workspace.TPSSystem.TPS, 0)
+			firetouchinterest(game.Players.LocalPlayer.Character["Left Leg"], game.Workspace.TPSSystem.TPS, 1)
+
+end
+end
+end
+if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.TPSSystem.TPS.Position).Magnitude <= DistanceReach then
+if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then
+firetouchinterest(game.Players.LocalPlayer.Character["RightLowerLeg"], game.Workspace.TPSSystem.TPS, 0)
+			firetouchinterest(game.Players.LocalPlayer.Character["RightLowerLeg"], game.Workspace.TPSSystem.TPS, 1)
+elseif game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 2 then
+firetouchinterest(game.Players.LocalPlayer.Character["LeftLowerLeg"], game.Workspace.TPSSystem.TPS, 0)
+			firetouchinterest(game.Players.LocalPlayer.Character["LeftLowerLeg"], game.Workspace.TPSSystem.TPS, 1)
+			end
+			end
+			end
+			end)
+end)
+
+tab.newButton("disable", "disables reach", function()
+    RunSteppedMobile:Disconnect()
+end)
+
+
+
+MRPage:CreateButton("Reach - 0", "Setting Size Of Reach", function()
+    DistanceReachMobile = 0
+end)
+
+MRPage:CreateButton("Reach - 2", "Setting Size Of Reach", function()
+    DistanceReachMobile = 2
+end)
+
+MRPage:CreateButton("Reach - 3", "Setting Size Of Reach", function()
+    DistanceReachMobile = 3
+end)
+
+MRPage:CreateButton("Reach - 5", "Setting Size Of Reach", function()
+    DistanceReachMobile = 5
+end)
+
+MRPage:CreateButton("Reach - 8", "Setting Size Of Reach", function()
+    DistanceReachMobile = 8
+end)
+
+MRPage:CreateButton("Reach - 10", "Setting Size Of Reach", function()
+    DistanceReachMobile = 10
+end)
+
+MRPage:CreateButton("Reach - 15", "Setting Size Of Reach", function()
+    DistanceReachMobile = 15
+end)
+
+MRPage:CreateButton("Reach - 20", "Setting Size Of Reach", function()
+    DistanceReachMobile = 20
+end)
+
+MRPage:CreateButton("Reach - 25", "Setting Size Of Reach", function()
+    DistanceReachMobile = 25
+end)
+
+MRPage:CreateButton("Reach - 30", "Setting Size Of Reach", function()
+    DistanceReachMobile = 30
+end)
+
+MRPage:CreateButton("Reach - 35", "Setting Size Of Reach", function()
+    DistanceReachMobile = 35
+end)
+
+MRPage:CreateButton("Reach - 50", "Setting Size Of Reach", function()
+    DistanceReachMobile = 50
+end)
+
+MRPage:CreateButton("Reach - 60", "Setting Size Of Reach", function()
+    DistanceReachMobile = 60
+end)
+
+MRPage:CreateButton("Reach - 70", "Setting Size Of Reach", function()
+    DistanceReachMobile = 70
+end)
+
+MRPage:CreateButton("Reach - 80", "Setting Size Of Reach", function()
+    DistanceReachMobile = 80
+end)
+
+MRPage:CreateButton("Reach - 90", "Setting Size Of Reach", function()
+    DistanceReachMobile = 90
+end)
+
+MRPage:CreateButton("Reach - 100", "Setting Size Of Reach", function()
+    DistanceReachMobile = 100
+end)
+
+
 
 
 
