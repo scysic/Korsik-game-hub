@@ -32,7 +32,6 @@ firetouchinterest(game.Players.LocalPlayer.Character["LeftLowerLeg"], game.Works
 			end)
 end)
 
-tab.newLabel("reach")
 
 tab.newButton("disable", "disables reach", function()
     RunSteppedMobile:Disconnect()
