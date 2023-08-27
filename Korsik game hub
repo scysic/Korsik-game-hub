@@ -1,15 +1,10 @@
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 local window = DrRayLibrary:Load("korsik", "Default")
 
-local tab1 = DrRayLibrary.newTab("main", "ImageIdHere")
+local tab = DrRayLibrary.newTab("main", "ImageIdHere")
 
-tab1.reach("works with mobile and pc")
 
-tab1.Method1("Reach: Method 1")
-local RunSteppedMobile
-local DistanceReachMobile = 0
-
-tab1.newButton("reach", "enables reach", function()
+tab.newButton("reach", "enables reach", function()
     RunSteppedMobile = game:GetService("RunService").RenderStepped:Connect(function()
 if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
 if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.TPSSystem.TPS.Position).Magnitude <= DistanceReachMobile then
@@ -37,17 +32,17 @@ firetouchinterest(game.Players.LocalPlayer.Character["LeftLowerLeg"], game.Works
 			end)
 end)
 
-tab1.newButton("disable", "disables reach", function()
+tab.newButton("disable", "disables reach", function()
     RunSteppedMobile:Disconnect()
 end)
 
 
 
-tab1.newButton("Reach - 0", "Setting Size Of Reach", function()
+tab.newButton("Reach - 0", "Setting Size Of Reach", function()
     DistanceReachMobile = 0
 end)
 
-tab1.newButton("Reach - 2", "Setting Size Of Reach", function()
+tab.newButton("Reach - 2", "Setting Size Of Reach", function()
     DistanceReachMobile = 2
 end)
 
