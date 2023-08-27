@@ -338,6 +338,31 @@ tab2.newButton("Pack A Punch", "TP To Pack A Punch", function()
 end)
 
 
+local tab3 = DrRayLibrary.newTab("misc", "ImageIdHere")
+
+tab3.newButton("Get All Guns", "Gets All Guns", function()
+    getgun("M14")
+	wait(0.4)
+	getgun("MP5k")
+	wait(0.4)
+	getgun("M4A1")
+	wait(0.4)
+	getgun("R870")
+	wait(0.4)
+	getgun("M16A2/M203")
+	wait(0.4)
+	getgun("RayGun")
+	wait(0.4)
+	getgun("M1014")
+	wait(0.4)
+	getgun("M1911")
+	wait(0.4)
+	getgun("AK-47")
+	wait(0.4)
+	getgun("AWP")
+
+
+
     
         
 
