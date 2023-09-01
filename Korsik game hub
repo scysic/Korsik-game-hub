@@ -398,6 +398,43 @@ game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.Celebrations
 end)
 end)
 
+tab2.newButton("Remove Textures", "Removes Decals, Effects [Expect Flame] And Textures From The Ball", function()
+     local Ball = game.Workspace.TPSSystem.TPS
+local Player = game.Players.LocalPlayer
+local HRP = Player.Character.HumanoidRootPart
+local RightLeg, LeftLeg = Player.Character["Right Leg"], Player.Character["Left Leg"]
+
+for i,BallCON in pairs(Ball:GetChildren()) do
+    if BallCON:IsA("Decal") or BallCON:IsA("Smoke") or BallCON:IsA("PointLight") or BallCON:IsA("ParticleEmitter") then
+       BallCON:Destroy()
+    end
+end
+
+for i,BALLFIRE in pairs(Ball:GetChildren()) do
+    if BALLFIRE:IsA("Fire") then
+       BALLFIRE.Heat = 1
+       BALLFIRE.Size = 5
+    end
+end
+
+Ball.Massless = true
+Ball.CustomPhysicalProperties = false
+end)
+
+
+
+tab2.NewButton("Highlight", "Allows You To See Normally And Through Walls", function(arg)
+if arg then
+local Highlight = Instance.new("Highlight", game.Workspace.TPSSystem.TPS)
+Highlight.FillColor = Color3.fromRGB(255, 255, 255)
+Highlight.FillTransparency = 0.2
+Highlight.OutlineColor = Color3.fromRGB(0, 255, 0)
+    else
+game.Workspace.TPSSystem.TPS.Highlight:Destroy()
+end
+end)
+
+
 
 
 
