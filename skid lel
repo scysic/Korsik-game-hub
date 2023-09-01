@@ -1,0 +1,16 @@
+local game = 123456789 
+-- game id
+
+if game.GameId == game then 
+-- https://developer.roblox.com/en-us/api-reference/property/DataModel/GameId
+
+-- code for the game
+
+print("Correct game") 
+-- Prints in the console if the player is the said game (matching the id)
+
+else
+print("Wrong game") 
+-- Prints in the console if the player is not in the said game (matching the id)
+
+end
