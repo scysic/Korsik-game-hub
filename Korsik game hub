@@ -1,4 +1,4 @@
-local game = 335760407
+local place = 335760407
 
 if game.PlaceId == 335760407 then
 
