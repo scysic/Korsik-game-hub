@@ -1,460 +1,155 @@
-local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
-local window = DrRayLibrary:Load("korsik", "Default")
-
-local tab = DrRayLibrary.newTab("main", "ImageIdHere")
-
-
-tab.newButton("reach", "enables reach", function()
-    RunSteppedMobile = game:GetService("RunService").RenderStepped:Connect(function()
-if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
-if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.TPSSystem.TPS.Position).Magnitude <= DistanceReachMobile then
-if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then
-firetouchinterest(game.Players.LocalPlayer.Character["Right Leg"], game.Workspace.TPSSystem.TPS, 0)
-			firetouchinterest(game.Players.LocalPlayer.Character["Right Leg"], game.Workspace.TPSSystem.TPS, 1)
-elseif game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 2 then
-firetouchinterest(game.Players.LocalPlayer.Character["Left Leg"], game.Workspace.TPSSystem.TPS, 0)
-			firetouchinterest(game.Players.LocalPlayer.Character["Left Leg"], game.Workspace.TPSSystem.TPS, 1)
-
-end
-end
-end
-if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
-if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.TPSSystem.TPS.Position).Magnitude <= DistanceReach then
-if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then
-firetouchinterest(game.Players.LocalPlayer.Character["RightLowerLeg"], game.Workspace.TPSSystem.TPS, 0)
-			firetouchinterest(game.Players.LocalPlayer.Character["RightLowerLeg"], game.Workspace.TPSSystem.TPS, 1)
-elseif game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 2 then
-firetouchinterest(game.Players.LocalPlayer.Character["LeftLowerLeg"], game.Workspace.TPSSystem.TPS, 0)
-			firetouchinterest(game.Players.LocalPlayer.Character["LeftLowerLeg"], game.Workspace.TPSSystem.TPS, 1)
-			end
-			end
-			end
-			end)
-end)
-
-
-tab.newButton("disable", "disables reach", function()
-    RunSteppedMobile:Disconnect()
-end)
-
-
-
-tab.newButton("Reach - 0", "Setting Size Of Reach", function()
-    DistanceReachMobile = 0
-end)
-
-tab.newButton("Reach - 2", "Setting Size Of Reach", function()
-    DistanceReachMobile = 2
-end)
-
-tab.newButton("Reach - 3", "Setting Size Of Reach", function()
-    DistanceReachMobile = 3
-end)
-
-tab.newButton("Reach - 5", "Setting Size Of Reach", function()
-    DistanceReachMobile = 5
-end)
-
-tab.newButton("Reach - 8", "Setting Size Of Reach", function()
-    DistanceReachMobile = 8
-end)
-
-tab.newButton("Reach - 10", "Setting Size Of Reach", function()
-    DistanceReachMobile = 10
-end)
-
-tab.newButton("Reach - 15", "Setting Size Of Reach", function()
-    DistanceReachMobile = 15
-end)
-
-tab.newButton("Reach - 20", "Setting Size Of Reach", function()
-    DistanceReachMobile = 20
-end)
-
-tab.newButton("Reach - 25", "Setting Size Of Reach", function()
-    DistanceReachMobile = 25
-end)
-
-tab.newButton("Reach - 30", "Setting Size Of Reach", function()
-    DistanceReachMobile = 30
-end)
-
-tab.newButton("Reach - 35", "Setting Size Of Reach", function()
-    DistanceReachMobile = 35
-end)
-
-tab.newButton("Reach - 50", "Setting Size Of Reach", function()
-    DistanceReachMobile = 50
-end)
-
-tab.newButton("Reach - 60", "Setting Size Of Reach", function()
-    DistanceReachMobile = 60
-end)
-
-tab.newButton("Reach - 70", "Setting Size Of Reach", function()
-    DistanceReachMobile = 70
-end)
-
-tab.newButton("Reach - 80", "Setting Size Of Reach", function()
-    DistanceReachMobile = 80
-end)
-
-tab.newButton("Reach - 90", "Setting Size Of Reach", function()
-    DistanceReachMobile = 90
-end)
-
-tab.newButton("Reach - 100", "Setting Size Of Reach", function()
-    DistanceReachMobile = 100
-end)
-
-
-local tab2 = DrRayLibrary.newTab("misc", "ImageIdHere")
-
-tab2.newLabel("Hello, this is misc tab")
-
-tab2.newButton("anti-kick", "anti kick!", function()
-    local mt = getrawmetatable(game)
-local ncallsa = mt.__namecall
-	setreadonly(mt, false)
-	mt.__namecall = newcclosure(function(...)
-		local args = {...}
-		if not checkcaller() and getnamecallmethod() == "Kick" then
-			return nil
-		end
-		return ncallsa(...)
-	end)
-	setreadonly(mt, true)
-end)
-
-
-tab2.newButton("Anti-ban", "anti-ban!", function()
-    local mmt = getrawmetatable(game)
-
-local oldnamecall = mmt.__namecall
-
-setreadonly(mmt, false)
-
-mmt.__namecall = newcclosure(function(self, ...)
-   local method = tostring(getnamecallmethod())
-   local Args = {...}
-   if not checkcaller() and method == "FireServer" and tostring(self) == "Banned" then
-       return nil
-   end
-   
-   return oldnamecall(self, ...)
-end)
-
-setreadonly(mmt, true)
-	
-	local gmt = getrawmetatable(game);
-setreadonly(gmt, false);
-local old_index = gmt.__index;
-gmt.__index = function(a, b)
-    if tostring(a) == "BannedA" or tostring(a) == "BannedB" or tostring(a) == "BannedC" or tostring(a) == "BannedD" then
-        if tostring(b) == "Value" then
-            return false;
-        end
-    end
-    return old_index(a, b);
-end
-
-local bgmt = getrawmetatable(game);
-setreadonly(bgmt, false);
-local bold_index = bgmt.__index;
-bgmt.__index = function(a, b)
-    if tostring(a) == "BCount" then
-        if tostring(b) == "Value" then
-            return 0;
-        end
-    end
-    return bold_index(a, b);
-end
-
-for i,BN in pairs(game:GetService("Workspace").FE.Settings:GetChildren()) do
-    if BN.Name == "BName" then
-    BN:Destroy()
-end
-end
---//
-end)
-
-
-tab2.newToggle("Better React", "Gives You A Better Reaction Time Of The Ball", function(arg)
-if arg then
-RunStepped2 = game:GetService("RunService").RenderStepped:Connect(function()
-if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then
-if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.TPSSystem.TPS.Position).Magnitude <= 3 then
-if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then
-firetouchinterest(game.Players.LocalPlayer.Character["Right Leg"],game.Workspace.TPSSystem.TPS,0)
-			firetouchinterest(game.Players.LocalPlayer.Character["Right Leg"],game.Workspace.TPSSystem.TPS,1)
-elseif game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 2 then
-firetouchinterest(game.Players.LocalPlayer.Character["Left Leg"],game.Workspace.TPSSystem.TPS,0)
-			firetouchinterest(game.Players.LocalPlayer.Character["Left Leg"],game.Workspace.TPSSystem.TPS,1)
-
-end
-end
-end
-if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then
-if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.TPSSystem.TPS.Position).Magnitude <= 3 then
-if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then
-firetouchinterest(game.Players.LocalPlayer.Character["RightLowerLeg"], game.Workspace.TPSSystem.TPS, 0)
-			firetouchinterest(game.Players.LocalPlayer.Character["RightLowerLeg"], game.Workspace.TPSSystem.TPS, 1)
-elseif game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 2 then
-firetouchinterest(game.Players.LocalPlayer.Character["LeftLowerLeg"], game.Workspace.TPSSystem.TPS, 0)
-			firetouchinterest(game.Players.LocalPlayer.Character["LeftLowerLeg"], game.Workspace.TPSSystem.TPS, 1)
-
-end
-end
-end
-end)
-else
-RunStepped2:Disconnect()
-end
-end)
-
-tab2.newButton("fps boost", "removes lag from gui", function()
-    for i,nolag in pairs(game.StarterGui.Start:GetChildren()) do
-if nolag.Name == "Gradient" then
-nolag:Destroy()
-end
-end
-for i,nolaglp in pairs(game.Players.LocalPlayer.PlayerGui.Start:GetChildren()) do
-if nolaglp.Name == "Gradient" then
-nolaglp:Destroy()
-end
-end
---//
-
---// FUNCTIONS, VARIABLES AND SCRIPTS //--
-function GetPlayer(String)
-	local Foundplr = {}
-	local strl = String:lower()
-	if strl == "all" then
-		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-			table.insert(Foundplr,v)
-		end
-	elseif strl == "others" then
-		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-			if v.Name ~= game.Players.LocalPlayer.Name then
-				table.insert(Foundplr,v)
-			end
-		end
-	elseif strl == "me" then
-		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-			if v.Name == game.Players.LocalPlayer.Name then
-				table.insert(Foundplr,v)
-			end
-		end
-	else
-		for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-			if v.DisplayName:lower():sub(1, #String) == String:lower() or v.Name:lower():sub(1, #String) == String:lower() then
-				table.insert(Foundplr,v)
-			end
-		end
-	end
-	return Foundplr
-end
-end)
-
-tab2.newButton("Unlock Celebration Packs", "Unlocking Every Celebration Pack", function()
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.GamePassMenu.Items.CelebrationPack1.Tick.Visible = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.GamePassMenu.Items.CelebrationPack1.CelebrationPack1.Style = "RobloxRoundButton"
-        game:GetService("Players").LocalPlayer.PlayerGui.Start.GamePassMenu.Items.CelebrationPack2.Tick.Visible = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.GamePassMenu.Items.CelebrationPack2.CelebrationPack2.Style = "RobloxRoundButton"
-        game:GetService("Players").LocalPlayer.PlayerGui.Start.GamePassMenu.Items.CelebrationPack3.Tick.Visible = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.GamePassMenu.Items.CelebrationPack3.CelebrationPack3.Style = "RobloxRoundButton"
-        game:GetService("Players").LocalPlayer.PlayerGui.Start.GamePassMenu.Items.CelebrationPack4.Tick.Visible = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.GamePassMenu.Items.CelebrationPack4.CelebrationPack4.Style = "RobloxRoundButton"
-        game:GetService("Players").LocalPlayer.PlayerGui.Start.GamePassMenu.Items.CelebrationPack5.Tick.Visible = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.GamePassMenu.Items.CelebrationPack5.CelebrationPack5.Style = "RobloxRoundButton"
-    
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.Package1.Button.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.Package2.Button.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.Package3.Button.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.Package4.Button.Visible = false
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.Package5.Button.Visible = false
-
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF04.Active = true
-   game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF04.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF04.Script.Disabled = false
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF05.Active = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF05.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF05.Script.Disabled = false
-   game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF06.Active = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF06.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF06.Script.Disabled = false
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF07.Active = true
-   game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF07.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF07.Script.Disabled = false
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF08.Active = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF08.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF08.Script.Disabled = false
-   game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF09.Active = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF09.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF09.Script.Disabled = false
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF10.Active = true
-   game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF10.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF10.Script.Disabled = false
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF11.Active = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF11.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF11.Script.Disabled = false
-   game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF12.Active = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF12.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF12.Script.Disabled = false
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF13.Active = true
-   game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF13.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF13.Script.Disabled = false
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF14.Active = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF14.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF14.Script.Disabled = false
-   game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF15.Active = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF15.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF15.Script.Disabled = false
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF16.Active = true
-   game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF16.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF16.Script.Disabled = false
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF17.Active = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF17.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF17.Script.Disabled = false
-   game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF18.Active = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF18.Selectable = true
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF18.Script.Disabled = false
-    
-    
-    game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF04.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration4()
-end)
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF05.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration5()
-end)
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF06.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration6()
-end)
-
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF07.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration7()
-end)
-
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF08.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration8()
-end)
-
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF09.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration9()
-end)
-
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF10.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration10()
-end)
-
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF11.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration11()
-end)
-
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF12.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration12()
-end)
-
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF13.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration13()
-end)
-
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF14.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration14()
-end)
-
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF15.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration15()
-end)
-
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF16.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration16()
-end)
-
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF17.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration17()
-end)
-
-
-game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF18.MouseButton1Click:Connect(function()
-    require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration18()
-end)
-end)
-
-tab2.newButton("Remove Textures", "Removes Decals, Effects [Expect Flame] And Textures From The Ball", function()
-     local Ball = game.Workspace.TPSSystem.TPS
-local Player = game.Players.LocalPlayer
-local HRP = Player.Character.HumanoidRootPart
-local RightLeg, LeftLeg = Player.Character["Right Leg"], Player.Character["Left Leg"]
-
-for i,BallCON in pairs(Ball:GetChildren()) do
-    if BallCON:IsA("Decal") or BallCON:IsA("Smoke") or BallCON:IsA("PointLight") or BallCON:IsA("ParticleEmitter") then
-       BallCON:Destroy()
-    end
-end
-
-for i,BALLFIRE in pairs(Ball:GetChildren()) do
-    if BALLFIRE:IsA("Fire") then
-       BALLFIRE.Heat = 1
-       BALLFIRE.Size = 5
-    end
-end
-
-Ball.Massless = true
-Ball.CustomPhysicalProperties = false
-end)
-
-
-
-tab2.NewButton("Highlight", "Allows You To See Normally And Through Walls", function(arg)
-if arg then
-local Highlight = Instance.new("Highlight", game.Workspace.TPSSystem.TPS)
-Highlight.FillColor = Color3.fromRGB(255, 255, 255)
-Highlight.FillTransparency = 0.2
-Highlight.OutlineColor = Color3.fromRGB(0, 255, 0)
-    else
-game.Workspace.TPSSystem.TPS.Highlight:Destroy()
-end
-end)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-        
-
-
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()   
+   local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()   
+   local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()   
+  
+   local Window = Fluent:CreateWindow({   
+       Title = "Sik-X " .. Fluent.Version,   
+       SubTitle = "script made by 1.xl",   
+       TabWidth = 160,   
+       Size = UDim2.fromOffset(450, 260),   
+       Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely   
+       Theme = "Dark",   
+       MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind   
+   })   
+  
+   --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional   
+   local Tabs = {   
+       Main = Window:AddTab({ Title = "Main", Icon = "dribbble" }),   
+       Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })   
+   }   
+  
+   local Options = Fluent.Options   
+  
+   do   
+       Fluent:Notify({   
+           Title = "Hello",   
+           Content = "Join discord",   
+           SubContent = "B)", -- Optional   
+           Duration = 5 -- Set to nil to make the notification not disappear   
+       })   
+  
+  
+  
+       Tabs.Main:AddParagraph({   
+           Title = "Paragraph",   
+           Content = "This is a paragraph.\nSecond line!"   
+       })   
+  
+  
+  
+       Tabs.Main:AddButton({   
+           Title = "Enable Reach",   
+           Description = "Click this before choosing an option",   
+           Callback = function()   
+               Window:Dialog({   
+                   Title = "Enable Reach",   
+                   Content = "Must click this for reach to work",   
+                   Buttons = {   
+                       {   
+                           Title = "Confirm",   
+                           Callback = function()   
+                               RunSteppedMobile = game:GetService("RunService").RenderStepped:Connect(function()   
+   if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then   
+   if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.TPSSystem.TPS.Position).Magnitude <= DistanceReachMobile then   
+   if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then   
+   firetouchinterest(game.Players.LocalPlayer.Character["Right Leg"], game.Workspace.TPSSystem.TPS, 0)   
+                           firetouchinterest(game.Players.LocalPlayer.Character["Right Leg"], game.Workspace.TPSSystem.TPS, 1)   
+   elseif game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 2 then   
+   firetouchinterest(game.Players.LocalPlayer.Character["Left Leg"], game.Workspace.TPSSystem.TPS, 0)   
+                           firetouchinterest(game.Players.LocalPlayer.Character["Left Leg"], game.Workspace.TPSSystem.TPS, 1)   
+  
+   end   
+   end   
+   end   
+   if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then   
+   if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.TPSSystem.TPS.Position).Magnitude <= DistanceReach then   
+   if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then   
+   firetouchinterest(game.Players.LocalPlayer.Character["RightLowerLeg"], game.Workspace.TPSSystem.TPS, 0)   
+                           firetouchinterest(game.Players.LocalPlayer.Character["RightLowerLeg"], game.Workspace.TPSSystem.TPS, 1)   
+   elseif game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 2 then   
+   firetouchinterest(game.Players.LocalPlayer.Character["LeftLowerLeg"], game.Workspace.TPSSystem.TPS, 0)   
+                           firetouchinterest(game.Players.LocalPlayer.Character["LeftLowerLeg"], game.Workspace.TPSSystem.TPS, 1)   
+                           end   
+                           end   
+                           end   
+                           end)   
+                           end   
+                       },   
+                       {   
+                           Title = "Cancel",   
+                           Callback = function()   
+                               print("Cancelled the dialog.")   
+                           end   
+                       }   
+                   }   
+               })   
+           end   
+       }) 
+  
+ Tabs.Main:AddButton({ 
+         Title = "Disable Reach", 
+         Description = "Disables Reach", 
+         Callback = function() 
+             Window:Dialog({ 
+                 Title = "Disable Reach", 
+                 Content = "This turns off reach", 
+                 Buttons = { 
+                     { 
+                         Title = "Confirm", 
+                         Callback = function() 
+                             RunSteppedMobile:Disconnect() 
+                         end 
+                     }, 
+                     { 
+                         Title = "Cancel", 
+                         Callback = function() 
+                             print("Cancelled the dialog.") 
+                         end 
+                     } 
+                 } 
+             }) 
+         end 
+     }) 
+  
+  
+ Tabs.Main:AddButton({ 
+         Title = "Reach 8", 
+         Description = "Reaches 8 studs", 
+         Callback = function() 
+ DistanceReachMobile = 8 
+ end}) 
+  
+ local Colorpicker = Tabs.Main:AddColorpicker("Colorpicker", { 
+         Title = "Colorpicker", 
+         Default = Color3.fromRGB(96, 205, 255) 
+     }) 
+  
+     Colorpicker:OnChanged(function() 
+         print("Colorpicker changed:", Colorpicker.Value) 
+     end) 
+  
+     Colorpicker:SetValueRGB(Color3.fromRGB(0, 255, 140)) 
+  
+  
+  
+     local TColorpicker = Tabs.Settings:AddColorpicker("TransparencyColorpicker", { 
+         Title = "Colorpicker", 
+         Description = "but you can change the transparency.", 
+         Transparency = 0, 
+         Default = Color3.fromRGB(96, 205, 255) 
+     }) 
+  
+     TColorpicker:OnChanged(function() 
+         print( 
+             "TColorpicker changed:", TColorpicker.Value, 
+             "Transparency:", TColorpicker.Transparency 
+         ) 
+     end) 
+  
+  
+  
+ end 
+  
+ SaveManager:SetLibrary(Fluent) 
+ InterfaceManager:SetLibrary(Fluent) 
+ Window:SelectTab(1)
