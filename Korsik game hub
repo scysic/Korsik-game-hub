@@ -1,3 +1,4 @@
+if game.PlaceId == 335760407 then
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()   
    local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()   
    local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()   
@@ -14,7 +15,7 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
   
    --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional   
    local Tabs = {   
-       Main = Window:AddTab({ Title = "Main", Icon = "dribbble" }),   
+       Main = Window:AddTab({ Title = "Main", Icon = "fan" }),   
        Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })   
    }   
   
