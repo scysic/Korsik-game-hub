@@ -3,8 +3,8 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
    local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()   
   
    local Window = Fluent:CreateWindow({   
-       Title = "Sik-X " .. Fluent.Version,   
-       SubTitle = "script made by 1.xl",   
+       Title = "Sik X " .. Fluent.Version,   
+       SubTitle = "tps street soccer",   
        TabWidth = 160,   
        Size = UDim2.fromOffset(450, 260),   
        Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely   
@@ -15,7 +15,8 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
    --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional   
    local Tabs = {   
        Main = Window:AddTab({ Title = "Main", Icon = "dribbble" }),   
-       Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })   
+       Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }) 
+Others = Window:AddTab({ Title = "Others", Icon = "settings" })   
    }   
   
    local Options = Fluent.Options   
@@ -31,8 +32,8 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
   
   
        Tabs.Main:AddParagraph({   
-           Title = "Paragraph",   
-           Content = "This is a paragraph.\nSecond line!"   
+           Title = "reach section",   
+           Content = "hello"   
        })   
   
   
@@ -118,38 +119,94 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
          Callback = function() 
  DistanceReachMobile = 8 
  end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 10", 
+         Description = "Reaches 10 studs", 
+         Callback = function() 
+ DistanceReachMobile = 10
+ end}) 
   
- local Colorpicker = Tabs.Main:AddColorpicker("Colorpicker", { 
-         Title = "Colorpicker", 
-         Default = Color3.fromRGB(96, 205, 255) 
-     }) 
-  
-     Colorpicker:OnChanged(function() 
-         print("Colorpicker changed:", Colorpicker.Value) 
-     end) 
-  
-     Colorpicker:SetValueRGB(Color3.fromRGB(0, 255, 140)) 
-  
-  
-  
-     local TColorpicker = Tabs.Settings:AddColorpicker("TransparencyColorpicker", { 
-         Title = "Colorpicker", 
-         Description = "but you can change the transparency.", 
-         Transparency = 0, 
-         Default = Color3.fromRGB(96, 205, 255) 
-     }) 
-  
-     TColorpicker:OnChanged(function() 
-         print( 
-             "TColorpicker changed:", TColorpicker.Value, 
-             "Transparency:", TColorpicker.Transparency 
-         ) 
-     end) 
-  
-  
-  
- end 
-  
- SaveManager:SetLibrary(Fluent) 
- InterfaceManager:SetLibrary(Fluent) 
- Window:SelectTab(1)
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 15", 
+         Description = "Reaches 15 studs", 
+         Callback = function() 
+ DistanceReachMobile = 15
+ end}) 
+ 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 20", 
+         Description = "Reaches 20 studs", 
+         Callback = function() 
+ DistanceReachMobile = 20
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 25", 
+         Description = "Reaches 25 studs", 
+         Callback = function() 
+ DistanceReachMobile = 25
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 30", 
+         Description = "Reaches 30 studs", 
+         Callback = function() 
+ DistanceReachMobile = 30
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach ", 
+         Description = "Reaches 30 studs", 
+         Callback = function() 
+ DistanceReachMobile = 30
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 40", 
+         Description = "Reaches 40 studs", 
+         Callback = function() 
+ DistanceReachMobile = 40
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 50", 
+         Description = "Reaches 50 studs", 
+         Callback = function() 
+ DistanceReachMobile = 50
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 60", 
+         Description = "Reaches 60 studs", 
+         Callback = function() 
+ DistanceReachMobile = 60
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 80", 
+         Description = "Reaches 80 studs", 
+         Callback = function() 
+ DistanceReachMobile = 80
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 90", 
+         Description = "Reaches 90 studs", 
+         Callback = function() 
+ DistanceReachMobile = 90
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 100", 
+         Description = "Reaches 100 studs", 
+         Callback = function() 
+ DistanceReachMobile = 100
+ end}) 
