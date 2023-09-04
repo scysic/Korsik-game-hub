@@ -213,3 +213,73 @@ Tabs.Main:AddButton({
 
 end
 end 
+
+
+
+
+--//Be a parkour ninja 
+if game.PlaceId == 147848991 then 
+loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()   
+   local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()   
+   local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()   
+  
+   local Window = Fluent:CreateWindow({   
+       Title = "Sik X " .. Fluent.Version,   
+       SubTitle = "tps street soccer",   
+       TabWidth = 160,   
+       Size = UDim2.fromOffset(450, 260),   
+       Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely   
+       Theme = "Darker",   
+       MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind   
+   })   
+  
+   --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional   
+   local Tabs = {   
+       Main = Window:AddTab({ Title = "Main", Icon = "fan" }),     
+   }   
+  
+   local Options = Fluent.Options   
+  
+   do   
+       Fluent:Notify({   
+           Title = "Game Detected",   
+           Content = "This game is supported",   
+           SubContent = "B)", -- Optional   
+           Duration = 5 -- Set to nil to make the notification not disappear   
+       })   
+  
+  
+  
+       Tabs.Main:AddParagraph({   
+           Title = "MainTab",   
+           Content = "join dizzy"   
+       })   
+  
+local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Large Hitbox", Default = false })
+
+    Toggle:OnChanged(function()
+        _G.HeadSize = 20
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really black")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+    end)
+
+    Options.MyToggle:SetValue(false)
+  end
+end
+
+
