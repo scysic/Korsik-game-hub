@@ -119,5 +119,95 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
  DistanceReachMobile = 8 
  end}) 
 
+Tabs.Main:AddButton({ 
+         Title = "Reach 10", 
+         Description = "Reaches 10 studs", 
+         Callback = function() 
+ DistanceReachMobile = 10
+ end}) 
+  
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 15", 
+         Description = "Reaches 15 studs", 
+         Callback = function() 
+ DistanceReachMobile = 15
+ end}) 
+ 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 20", 
+         Description = "Reaches 20 studs", 
+         Callback = function() 
+ DistanceReachMobile = 20
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 25", 
+         Description = "Reaches 25 studs", 
+         Callback = function() 
+ DistanceReachMobile = 25
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 30", 
+         Description = "Reaches 30 studs", 
+         Callback = function() 
+ DistanceReachMobile = 30
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach ", 
+         Description = "Reaches 30 studs", 
+         Callback = function() 
+ DistanceReachMobile = 30
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 40", 
+         Description = "Reaches 40 studs", 
+         Callback = function() 
+ DistanceReachMobile = 40
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 50", 
+         Description = "Reaches 50 studs", 
+         Callback = function() 
+ DistanceReachMobile = 50
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 60", 
+         Description = "Reaches 60 studs", 
+         Callback = function() 
+ DistanceReachMobile = 60
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 80", 
+         Description = "Reaches 80 studs", 
+         Callback = function() 
+ DistanceReachMobile = 80
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 90", 
+         Description = "Reaches 90 studs", 
+         Callback = function() 
+ DistanceReachMobile = 90
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 100", 
+         Description = "Reaches 100 studs", 
+         Callback = function() 
+ DistanceReachMobile = 100
+ end}) 
 
 end
