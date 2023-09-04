@@ -225,7 +225,7 @@ loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest
   
    local Window = Fluent:CreateWindow({   
        Title = "Sik X " .. Fluent.Version,   
-       SubTitle = "tps street soccer",   
+       SubTitle = "be a parkour ninja",   
        TabWidth = 160,   
        Size = UDim2.fromOffset(450, 260),   
        Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely   
