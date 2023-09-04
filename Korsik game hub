@@ -293,18 +293,11 @@ game:GetService("UserInputService").JumpRequest:connect(function()
 end)
  end}) 
 
-Tabs.Main:AddButton({
-        Title = "Blind All",
-        Description = "blinds whole server",
-        Callback = function()
-            Window:Dialog({
-                Title = "Blind All",
-                Content = "Blinds everyone",
-                Buttons = {
-                    {
-                        Title = "Confirm",
-                        Callback = function()
-                            if getgenv().autoFlash then getgenv().autoFlash = false else getgenv().autoFlash = true end
+Tabs.Main:AddButton({ 
+         Title = "Blinds everyone", 
+         Description = "Blind all", 
+         Callback = function()
+if getgenv().autoFlash then getgenv().autoFlash = false else getgenv().autoFlash = true end
 while getgenv().autoFlash do
     for _, v in pairs(game:GetService("Players"):GetPlayers()) do
         if v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") and v ~= plr then
@@ -313,18 +306,7 @@ while getgenv().autoFlash do
         task.wait()
     end
 end
-                        end
-                    },
-                    {
-                        Title = "Cancel",
-                        Callback = function()
-                            print("Cancelled the dialog.")
-                        end
-                    }
-                }
-            })
-        end
-    })
+ end}) 
 
 end
 end
