@@ -282,4 +282,22 @@ end)
   end
 end
 
+Tabs.Main:AddButton({ 
+         Title = "Infinite Jumps", 
+         Description = "inf jumps", 
+         Callback = function() 
+ local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+
+Fluent:Notify({   
+           Title = "Infinite Jumps Activate",   
+           Content = "wow",   
+           SubContent = "B)", -- Optional   
+           Duration = 5 -- Set to nil to make the notification not disappear   
+       })   
+end}) 
+
 
