@@ -293,5 +293,3 @@ game:GetService("UserInputService").JumpRequest:connect(function()
 end)
  end}) 
 
-end
-end
