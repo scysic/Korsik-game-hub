@@ -295,9 +295,16 @@ end)
 
 Tabs.Main:AddButton({
         Title = "Blind everyone",
-        Description = "Blinds The whole server",
+        Description = "op asf",
         Callback = function()
-            if getgenv().autoFlash then getgenv().autoFlash = false else getgenv().autoFlash = true end
+            Window:Dialog({
+                Title = "Blind everyone",
+                Content = "Blind All",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            if getgenv().autoFlash then getgenv().autoFlash = false else getgenv().autoFlash = true end
 while getgenv().autoFlash do
     for _, v in pairs(game:GetService("Players"):GetPlayers()) do
         if v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") and v ~= plr then
@@ -306,5 +313,17 @@ while getgenv().autoFlash do
         task.wait()
     end
 end
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
 end
 end
