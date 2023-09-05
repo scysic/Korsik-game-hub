@@ -334,6 +334,8 @@ if game.PlaceId == 662417684 then
    --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional   
    local Tabs = {   
        Main = Window:AddTab({ Title = "Main", Icon = "codesandbox" }),     
+Player = Window:AddTab({ Title = "Player", Icon = "user" }),
+Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
    }   
   
    local Options = Fluent.Options   
@@ -367,7 +369,7 @@ Tabs.Main:AddButton({
 game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
 end})
 
-local Slider = Tabs.Main:AddSlider("Slider", {
+local Slider = Tabs.Player:AddSlider("Slider", {
         Title = "WalkSpeed",
         Description = "WS",
         Default = 17,
@@ -379,7 +381,7 @@ local Slider = Tabs.Main:AddSlider("Slider", {
         end
     })
 
-local Slider = Tabs.Main:AddSlider("Slider", {
+local Slider = Tabs.Player:AddSlider("Slider", {
         Title = "JumpPower",
         Description = "JP",
         Default = 65,
@@ -392,14 +394,6 @@ game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end})
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
-
--- Ignore keys that are used by ThemeManager.
--- (we dont want configs to save themes, do we?)
-SaveManager:IgnoreThemeSettings()
-
--- You can add indexes of elements the save manager should ignore
-SaveManager:SetIgnoreIndexes({})
-
 -- use case for doing it this way:
 -- a script hub could have themes in a global folder
 -- and game configs in a separate folder per game
@@ -411,16 +405,6 @@ SaveManager:BuildConfigSection(Tabs.Settings)
 
 
 Window:SelectTab(1)
-
-Fluent:Notify({
-    Title = "Fluent",
-    Content = "The script has been loaded.",
-    Duration = 8
-})
-
--- You can use the SaveManager:LoadAutoloadConfig() to load a config
--- which has been marked to be one that auto loads!
-SaveManager:LoadAutoloadConfig()
 
  end
 end
