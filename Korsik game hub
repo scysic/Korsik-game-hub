@@ -315,4 +315,87 @@ end
 
 
 
+--//Lucky Block Battleground
+if game.PlaceId == 662417684 then
+    loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()   
+   local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()   
+   local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()   
+  
+   local Window = Fluent:CreateWindow({   
+       Title = "Sik X " .. Fluent.Version,   
+       SubTitle = "Lucky Block Battleground",   
+       TabWidth = 160,   
+       Size = UDim2.fromOffset(450, 260),   
+       Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely   
+       Theme = "Darker",   
+       MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind   
+   })   
+  
+   --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional   
+   local Tabs = {   
+       Main = Window:AddTab({ Title = "Main", Icon = "codesandbox" }),     
+   }   
+  
+   local Options = Fluent.Options   
+  
+   do 
+    Fluent:Notify({   
+        Title = "Game Detected",   
+        Content = "This game is supported",   
+        SubContent = "B)", -- Optional   
+        Duration = 5 -- Set to nil to make the notification not disappear   
+    })   
+
+Tabs.Main:AddButton({ 
+         Title = "spawn lucky block", 
+         Description = "spawn lucky block", 
+         Callback = function() 
+game:GetService("ReplicatedStorage").SpawnLuckyBlock:FireServer()
+end)}
+
+Tabs.Main:AddButton({ 
+         Title = "spawn rainbow block", 
+         Description = "spawns rainbow block", 
+         Callback = function()
+game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
+end)}
+
+Tabs.Main:AddButton({ 
+         Title = "spawn galaxy block", 
+         Description = "spawn galaxy block", 
+         Callback = function()
+game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
+end)}  
+
+local Slider = Tabs.Main:AddSlider("Slider", {
+        Title = "WalkSpeed",
+        Description = "WS",
+        Default = 2,
+        Min = 0,
+        Max = 500,
+        Rounding = 1,
+        Callback = function(s)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+        end
+    })
+
+local Slider = Tabs.Main:AddSlider("Slider", {
+        Title = "WalkSpeed",
+        Description = "WS",
+        Default = 2,
+        Min = 0,
+        Max = 500,
+        Rounding = 1,
+        Callback = function(s)
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+
+end})
+
+ end
+end
+
+
+
+
+
 
