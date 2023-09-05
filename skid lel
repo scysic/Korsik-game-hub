@@ -1,16 +1,400 @@
-local game = 123456789 
--- game id
+if game.PlaceId == 335760407 then
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()   
+   local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()   
+   local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()   
+  
+   local Window = Fluent:CreateWindow({   
+       Title = "Sik X " .. Fluent.Version,   
+       SubTitle = "tps street soccer",   
+       TabWidth = 160,   
+       Size = UDim2.fromOffset(450, 260),   
+       Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely   
+       Theme = "Dark",   
+       MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind   
+   })   
+  
+   --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional   
+   local Tabs = {   
+       Main = Window:AddTab({ Title = "Main", Icon = "fan" }),   
+       Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })   
+   }   
+  
+   local Options = Fluent.Options   
+  
+   do   
+       Fluent:Notify({   
+           Title = "Hello",   
+           Content = "Join discord",   
+           SubContent = "B)", -- Optional   
+           Duration = 5 -- Set to nil to make the notification not disappear   
+       })   
+  
+  
+  
+       Tabs.Main:AddParagraph({   
+           Title = "reach section",   
+           Content = "hello"   
+       })   
+  
+  
+  
+       Tabs.Main:AddButton({   
+           Title = "Enable Reach",   
+           Description = "Click this before choosing an option",   
+           Callback = function()   
+               Window:Dialog({   
+                   Title = "Enable Reach",   
+                   Content = "Must click this for reach to work",   
+                   Buttons = {   
+                       {   
+                           Title = "Confirm",   
+                           Callback = function()   
+                               RunSteppedMobile = game:GetService("RunService").RenderStepped:Connect(function()   
+   if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R6 then   
+   if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.TPSSystem.TPS.Position).Magnitude <= DistanceReachMobile then   
+   if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then   
+   firetouchinterest(game.Players.LocalPlayer.Character["Right Leg"], game.Workspace.TPSSystem.TPS, 0)   
+                           firetouchinterest(game.Players.LocalPlayer.Character["Right Leg"], game.Workspace.TPSSystem.TPS, 1)   
+   elseif game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 2 then   
+   firetouchinterest(game.Players.LocalPlayer.Character["Left Leg"], game.Workspace.TPSSystem.TPS, 0)   
+                           firetouchinterest(game.Players.LocalPlayer.Character["Left Leg"], game.Workspace.TPSSystem.TPS, 1)   
+  
+   end   
+   end   
+   end   
+   if game.Players.LocalPlayer.Character.Humanoid.RigType == Enum.HumanoidRigType.R15 then   
+   if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.TPSSystem.TPS.Position).Magnitude <= DistanceReach then   
+   if game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 1 then   
+   firetouchinterest(game.Players.LocalPlayer.Character["RightLowerLeg"], game.Workspace.TPSSystem.TPS, 0)   
+                           firetouchinterest(game.Players.LocalPlayer.Character["RightLowerLeg"], game.Workspace.TPSSystem.TPS, 1)   
+   elseif game.Lighting[game.Players.LocalPlayer.Name].PreferredFoot.Value == 2 then   
+   firetouchinterest(game.Players.LocalPlayer.Character["LeftLowerLeg"], game.Workspace.TPSSystem.TPS, 0)   
+                           firetouchinterest(game.Players.LocalPlayer.Character["LeftLowerLeg"], game.Workspace.TPSSystem.TPS, 1)   
+                           end   
+                           end   
+                           end   
+                           end)   
+                           end   
+                       },   
+                       {   
+                           Title = "Cancel",   
+                           Callback = function()   
+                               print("Cancelled the dialog.")   
+                           end   
+                       }   
+                   }   
+               })   
+           end   
+       }) 
+  
+ Tabs.Main:AddButton({ 
+         Title = "Disable Reach", 
+         Description = "Disables Reach", 
+         Callback = function() 
+             Window:Dialog({ 
+                 Title = "Disable Reach", 
+                 Content = "This turns off reach", 
+                 Buttons = { 
+                     { 
+                         Title = "Confirm", 
+                         Callback = function() 
+                             RunSteppedMobile:Disconnect() 
+                         end 
+                     }, 
+                     { 
+                         Title = "Cancel", 
+                         Callback = function() 
+                             print("Cancelled the dialog.") 
+                         end 
+                     } 
+                 } 
+             }) 
+         end 
+     }) 
+  
+  
+ Tabs.Main:AddButton({ 
+         Title = "Reach 8", 
+         Description = "Reaches 8 studs", 
+         Callback = function() 
+ DistanceReachMobile = 8 
+ end}) 
 
-if game.GameId == game then 
--- https://developer.roblox.com/en-us/api-reference/property/DataModel/GameId
+Tabs.Main:AddButton({ 
+         Title = "Reach 10", 
+         Description = "Reaches 10 studs", 
+         Callback = function() 
+ DistanceReachMobile = 10
+ end}) 
+  
 
--- code for the game
+Tabs.Main:AddButton({ 
+         Title = "Reach 15", 
+         Description = "Reaches 15 studs", 
+         Callback = function() 
+ DistanceReachMobile = 15
+ end}) 
+ 
 
-print("Correct game") 
--- Prints in the console if the player is the said game (matching the id)
+Tabs.Main:AddButton({ 
+         Title = "Reach 20", 
+         Description = "Reaches 20 studs", 
+         Callback = function() 
+ DistanceReachMobile = 20
+ end}) 
 
-else
-print("Wrong game") 
--- Prints in the console if the player is not in the said game (matching the id)
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 25", 
+         Description = "Reaches 25 studs", 
+         Callback = function() 
+ DistanceReachMobile = 25
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 30", 
+         Description = "Reaches 30 studs", 
+         Callback = function() 
+ DistanceReachMobile = 30
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach ", 
+         Description = "Reaches 30 studs", 
+         Callback = function() 
+ DistanceReachMobile = 30
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 40", 
+         Description = "Reaches 40 studs", 
+         Callback = function() 
+ DistanceReachMobile = 40
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 50", 
+         Description = "Reaches 50 studs", 
+         Callback = function() 
+ DistanceReachMobile = 50
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 60", 
+         Description = "Reaches 60 studs", 
+         Callback = function() 
+ DistanceReachMobile = 60
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 80", 
+         Description = "Reaches 80 studs", 
+         Callback = function() 
+ DistanceReachMobile = 80
+ end}) 
+
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 90", 
+         Description = "Reaches 90 studs", 
+         Callback = function() 
+ DistanceReachMobile = 90
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Reach 100", 
+         Description = "Reaches 100 studs", 
+         Callback = function() 
+ DistanceReachMobile = 100
+ end}) 
 
 end
+end 
+
+
+
+
+--//Be a parkour ninja 
+if game.PlaceId == 147848991 then 
+loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()   
+   local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()   
+   local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()   
+  
+   local Window = Fluent:CreateWindow({   
+       Title = "Sik X " .. Fluent.Version,   
+       SubTitle = "be a parkour ninja",   
+       TabWidth = 160,   
+       Size = UDim2.fromOffset(450, 260),   
+       Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely   
+       Theme = "Darker",   
+       MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind   
+   })   
+  
+   --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional   
+   local Tabs = {   
+       Main = Window:AddTab({ Title = "Main", Icon = "fan" }),     
+   }   
+  
+   local Options = Fluent.Options   
+  
+   do   
+       Fluent:Notify({   
+           Title = "Game Detected",   
+           Content = "This game is supported",   
+           SubContent = "B)", -- Optional   
+           Duration = 5 -- Set to nil to make the notification not disappear   
+       })   
+  
+  
+  
+       Tabs.Main:AddParagraph({   
+           Title = "MainTab",   
+           Content = "join dizzy"   
+       })   
+  
+local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Large Hitbox", Default = false })
+
+    Toggle:OnChanged(function()
+        _G.HeadSize = 20
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really black")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+    end)
+
+    Options.MyToggle:SetValue(false)
+  
+
+Tabs.Main:AddButton({ 
+         Title = "Infinite jumps", 
+         Description = "inf jump", 
+         Callback = function() 
+ local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+ end}) 
+
+Tabs.Main:AddButton({ 
+         Title = "Blinds everyone", 
+         Description = "Blind all", 
+         Callback = function()
+if getgenv().autoFlash then getgenv().autoFlash = false else getgenv().autoFlash = true end
+while getgenv().autoFlash do
+    for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+        if v.Character ~= nil and v.Character:FindFirstChild("HumanoidRootPart") and v ~= plr then
+            game:GetService("ReplicatedStorage").RemoteTriggers.CreateFlash:FireServer(v.Character.HumanoidRootPart.Position, 21)
+        end
+        task.wait()
+    end
+end
+ end}) 
+
+end
+end
+
+
+
+
+
+--//Lucky Block Battleground
+if game.PlaceId == 662417684 then
+    loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()   
+   local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()   
+   local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()   
+  
+   local Window = Fluent:CreateWindow({   
+       Title = "Sik X " .. Fluent.Version,   
+       SubTitle = "Lucky Block Battleground",   
+       TabWidth = 160,   
+       Size = UDim2.fromOffset(450, 260),   
+       Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely   
+       Theme = "Darker",   
+       MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind   
+   })   
+  
+   --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional   
+   local Tabs = {   
+       Main = Window:AddTab({ Title = "Main", Icon = "codesandbox" }),     
+   }   
+  
+   local Options = Fluent.Options   
+  
+   do 
+    Fluent:Notify({   
+        Title = "Game Detected",   
+        Content = "This game is supported",   
+        SubContent = "B)", -- Optional   
+        Duration = 5 -- Set to nil to make the notification not disappear   
+    })   
+
+Tabs.Main:AddButton({ 
+         Title = "spawn lucky block", 
+         Description = "spawn lucky block", 
+         Callback = function() 
+game:GetService("ReplicatedStorage").SpawnLuckyBlock:FireServer()
+end})
+
+Tabs.Main:AddButton({ 
+         Title = "spawn rainbow block", 
+         Description = "spawns rainbow block", 
+         Callback = function()
+game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
+end})
+
+Tabs.Main:AddButton({ 
+         Title = "spawn galaxy block", 
+         Description = "spawn galaxy block", 
+         Callback = function()
+game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
+end})
+
+local Slider = Tabs.Main:AddSlider("Slider", {
+        Title = "WalkSpeed",
+        Description = "WS",
+        Default = 17,
+        Min = 0,
+        Max = 500,
+        Rounding = 1,
+        Callback = function(s)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+        end
+    })
+
+local Slider = Tabs.Main:AddSlider("Slider", {
+        Title = "JumpPower",
+        Description = "JP",
+        Default = 65,
+        Min = 0,
+        Max = 500,
+        Rounding = 1,
+        Callback = function(s)
+game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+
+end})
+
+ end
+end
+
+
+
+
+
