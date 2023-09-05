@@ -351,21 +351,21 @@ Tabs.Main:AddButton({
          Description = "spawn lucky block", 
          Callback = function() 
 game:GetService("ReplicatedStorage").SpawnLuckyBlock:FireServer()
-end)}
+end})
 
 Tabs.Main:AddButton({ 
          Title = "spawn rainbow block", 
          Description = "spawns rainbow block", 
          Callback = function()
 game:GetService("ReplicatedStorage").SpawnRainbowBlock:FireServer()
-end)}
+end})
 
 Tabs.Main:AddButton({ 
          Title = "spawn galaxy block", 
          Description = "spawn galaxy block", 
          Callback = function()
 game:GetService("ReplicatedStorage").SpawnGalaxyBlock:FireServer()
-end)}  
+end})
 
 local Slider = Tabs.Main:AddSlider("Slider", {
         Title = "WalkSpeed",
