@@ -370,7 +370,7 @@ end})
 local Slider = Tabs.Main:AddSlider("Slider", {
         Title = "WalkSpeed",
         Description = "WS",
-        Default = 16.15,
+        Default = 17,
         Min = 0,
         Max = 500,
         Rounding = 1,
@@ -382,7 +382,7 @@ local Slider = Tabs.Main:AddSlider("Slider", {
 local Slider = Tabs.Main:AddSlider("Slider", {
         Title = "JumpPower",
         Description = "JP",
-        Default = 100,
+        Default = 65,
         Min = 0,
         Max = 500,
         Rounding = 1,
