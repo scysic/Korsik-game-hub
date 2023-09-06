@@ -15,9 +15,10 @@ local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/
   
    --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional   
    local Tabs = {   
-       Main = Window:AddTab({ Title = "Main", Icon = "fan" }),   
-       Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })   
-   }   
+       Main = Window:AddTab({ Title = "Main", Icon = "fan" }),
+Others = Window:AddTab({ Title = "Others", Icon = "cog" }),     
+      Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
+     }
   
    local Options = Fluent.Options   
   
@@ -209,7 +210,14 @@ Tabs.Main:AddButton({
          Description = "Reaches 100 studs", 
          Callback = function() 
  DistanceReachMobile = 100
- end}) 
+ end})
+
+Tabs.Main:AddButton({ 
+         Title = "Unlock Celebrations", 
+         Description = "Unlocks Emotes", 
+         Callback = function() 
+ DistanceReachMobile = 8 
+ end})  
 
 end
 end 
