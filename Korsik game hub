@@ -354,7 +354,7 @@ Tabs.Others:AddButton({
   
   game:GetService("Players").LocalPlayer.PlayerGui.Start.Celebrations.CelebrationsSelect.SF18.MouseButton1Click:Connect(function()  
       require(game.Players.LocalPlayer.Backpack.CelebrationsModule).Celebration18()  
-  end
+  end)
  end})
 
 SaveManager:SetLibrary(Fluent)
