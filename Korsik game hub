@@ -649,42 +649,7 @@ end
 
 
 
---//slap battles
 
-if game.PlaceId == 11520107397 then
-
-loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()   
-   local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()   
-   local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()   
-  
-   local Window = Fluent:CreateWindow({   
-       Title = "Sik X " .. Fluent.Version,   
-       SubTitle = "Slap Battles",   
-       TabWidth = 160,   
-       Size = UDim2.fromOffset(450, 260),   
-       Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely   
-       Theme = "Darker",   
-       MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind   
-   })   
-  
-   --Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional   
-   local Tabs = {   
-       Main = Window:AddTab({ Title = "Home", Icon = "codesandbox" }),     
-Player = Window:AddTab({ Title = "Combat", Icon = "user" }),
-Settings = Window:AddTab({ Title = "Antis", Icon = "Shield" })
-   }   
-  
-   local Options = Fluent.Options   
-  
-   do 
-    Fluent:Notify({   
-        Title = "Game Detected",   
-        Content = "This game is supported",   
-        SubContent = "B)", -- Optional   
-        Duration = 5 -- Set to nil to make the notification not disappear   
-    })   
-end
-end
 
 
 
